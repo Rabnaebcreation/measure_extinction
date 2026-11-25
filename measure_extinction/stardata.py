@@ -335,6 +335,14 @@ class BandData:
                 10 ** (0.4 * _acs_vegamag[i])
             )
 
+        # Gaia DR3 bands. Wavelenghts and zeropoints are taken from https://svo2.cab.inta-csic.es/theory/fps/index.php?mode=browse&gname=GAIA&gname2=GAIA3&asttype=
+        _gaia3_band_names = ["Gaia3BP", "Gaia3G", "Gaia3RP"]
+        _gaia3_band_waves = np.array([0.5109, 0.6217, 0.7769])
+        _gaia3_band_zeromag_fluxes = (
+            np.array([4.07852, 2.50386, 1.26902]) * 1e-9
+        )
+
+
         # combine all the possible
         _poss_band_names = np.concatenate(
             [
@@ -345,6 +353,7 @@ class BandData:
                 _wfpc2_band_names,
                 _wfc3_band_names,
                 _acs_band_names,
+                _gaia3_band_names,
             ]
         )
         _poss_band_waves = np.concatenate(
@@ -356,6 +365,7 @@ class BandData:
                 _wfpc2_band_waves,
                 _wfc3_band_waves,
                 _acs_band_waves,
+                _gaia3_band_waves,
             ]
         )
         _poss_band_zeromag_fluxes = np.concatenate(
@@ -367,6 +377,7 @@ class BandData:
                 _wfpc2_band_zeromag_fluxes,
                 _wfc3_band_zeromag_fluxes,
                 _acs_band_zeromag_fluxes,
+                _gaia3_band_zeromag_fluxes,
             ]
         )
 
